@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   counter: state.counter
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch(actions.increment())
-})
+  increment: () => dispatch(actions.increment()),
+  decrement: () => dispatch(actions.decrement()),
+  resetCounter: () => dispatch(actions.resetCounter()),
+});
 
 class Counter extends React.Component {
   constructor(props) {
@@ -18,15 +20,14 @@ class Counter extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <React.Fragment>
         <h2>counter</h2>
         <div>
-          <button>-</button>
-          <span>{this.props.counter.counter}</span>
+          <button onClick={this.props.decrement}>-</button>
+          <span>{this.props.counter}</span>
           <button onClick={this.props.increment}>+</button>
-          <button>reset</button>
+          <button onClick={this.props.resetCounter}>reset</button>
         </div>
       </React.Fragment>
     );

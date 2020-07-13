@@ -5,7 +5,7 @@ import ColorButton from '../presentational/ColorButton.jsx';
 import * as actions from "../../actions/actions";
 
 const mapStateToProps = (state) => ({
-  colors: state.colors.colors,
+  colorsAvailable: state.colors.colorsAvailable,
   currentColor: state.colors.currentColor
 });
 
@@ -17,7 +17,7 @@ const Colors = (props) => {
   return (
     <React.Fragment>
       <h2>color buttons</h2>
-      {props.colors.colors.map(color => 
+      {props.colorsAvailable.map(color => 
         <ColorButton 
           changeColor={props.changeColor} 
           color={color} 
